@@ -1,0 +1,21 @@
+DEBUG: no
+domains:
+
+    # one entry per domain we want to verify.
+    exampledomain.example.org:
+
+        # we want to verify the challenge for exampledomain.example.org.
+        # for this, we need to add a dns record for _acme-challenge.exampledomain in the zone example.org at our dns provider.
+
+        # zone that the domain or subdomain is part of
+        zone: example.org
+
+        # record that needs to be set within the zone. Must be relative to the zone itself.
+        record: _acme-challenge.exampledomain
+
+        # DNS server name to send the updates to
+        dns_server: ns01.yourprovider.com
+
+        # TSIG credentials to access this
+        tsig_keyname: somekeyname
+        tsig_secret: b64_key_secret
